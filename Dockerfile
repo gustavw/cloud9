@@ -45,4 +45,4 @@ EXPOSE 8080 22
 
 # ------------------------------------------------------------------------------
 # Start
-ENTRYPOINT ["/usr/local/bin/chaperone"]
+#ENTRYPOINT ["/usr/local/bin/chaperone"]
