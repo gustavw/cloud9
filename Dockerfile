@@ -1,12 +1,14 @@
-FROM node:slim
+FROM debian:stable
 MAINTAINER "gustav@rnld.se"
 # PRIVIOUS MAINTAINER "EEA: IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
 
 # ------------------------------------------------------------------------------
 # Install dependencies
+RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
     build-essential git pylint virtualenv python3-dev python3-pip openssh-server \
+    nodejs
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
  && pip3 install chaperone \
