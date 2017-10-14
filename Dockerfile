@@ -10,6 +10,7 @@ RUN apt-get update \
     build-essential git pylint virtualenv python3-dev python3-pip openssh-server \
     curl python3-setuptools gnupg \
  && apt-get install -y --no-install-recommends nodejs \
+ && ln -s /usr/bin/nodejs /usr/bin/node \
  && curl -sL https://deb.nodesource.com/setup | bash - \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -45,4 +46,4 @@ EXPOSE 8080 22
 
 # ------------------------------------------------------------------------------
 # Start
-#ENTRYPOINT ["/usr/local/bin/chaperone"]
+ENTRYPOINT ["/usr/local/bin/chaperone"]
