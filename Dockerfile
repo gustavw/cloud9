@@ -1,5 +1,6 @@
-FROM node:0.12-slim
-MAINTAINER "EEA: IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
+FROM node:slim
+MAINTAINER "gustav@rnld.se"
+# PRIVIOUS MAINTAINER "EEA: IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
 
 # ------------------------------------------------------------------------------
 # Install dependencies
@@ -27,7 +28,7 @@ VOLUME /cloud9/workspace
 # ------------------------------------------------------------------------------
 # Set default workspace dir
 ENV C9_WORKSPACE /cloud9/workspace
-ENV AUTHORIZED_KEYS **None**
+#ENV AUTHORIZED_KEYS **None**
 
 # ------------------------------------------------------------------------------
 # Configuration
