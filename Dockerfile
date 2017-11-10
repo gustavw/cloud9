@@ -17,8 +17,10 @@ RUN apt-get update \
  && pip3 install chaperone \
  && mkdir /etc/chaperone.d /cloud9 /var/run/sshd
 
-# Ohmy ZSH
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+# Install Zsh
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
+      && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
+      && chsh -s /bin/zsh
 # ------------------------------------------------------------------------------
 # Get cloud9 source and install
 WORKDIR /cloud9
