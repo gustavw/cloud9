@@ -9,7 +9,6 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends \
     build-essential git pylint virtualenv python3-dev python3-pip openssh-server \
     curl python3-setuptools gnupg zsh \
- && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
  && apt-get install -y --no-install-recommends nodejs \
  && ln -s /usr/bin/nodejs /usr/bin/node \
  && curl -sL https://deb.nodesource.com/setup | bash - \
@@ -18,6 +17,8 @@ RUN apt-get update \
  && pip3 install chaperone \
  && mkdir /etc/chaperone.d /cloud9 /var/run/sshd
 
+# Ohmy ZSH
+RUN  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # ------------------------------------------------------------------------------
 # Get cloud9 source and install
 WORKDIR /cloud9
