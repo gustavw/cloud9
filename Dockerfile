@@ -3,12 +3,12 @@ MAINTAINER "gustav@rnld.se"
 # PRIVIOUS MAINTAINER "EEA: IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
 
 # ------------------------------------------------------------------------------
+ENV HOME /root
 # Install dependencies
-RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
     build-essential git pylint virtualenv python3-dev python3-pip openssh-server \
-    curl python3-setuptools gnupg zsh \
+    curl wget python3-setuptools gnupg zsh \
  && apt-get install -y --no-install-recommends nodejs \
  && ln -s /usr/bin/nodejs /usr/bin/node \
  && curl -sL https://deb.nodesource.com/setup | bash - \
@@ -50,4 +50,5 @@ EXPOSE 8080 22 5000 8888 8889 8890
 
 # ------------------------------------------------------------------------------
 # Start
+ENV SHELL /bin/zsh
 ENTRYPOINT ["/usr/local/bin/chaperone"]
