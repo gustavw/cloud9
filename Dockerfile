@@ -18,7 +18,7 @@ RUN apt-get update \
  && mkdir /etc/chaperone.d /cloud9 /var/run/sshd
 
 # Ohmy ZSH
-RUN  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 # ------------------------------------------------------------------------------
 # Get cloud9 source and install
 WORKDIR /cloud9
