@@ -21,6 +21,12 @@ RUN apt-get update \
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
       && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
       && chsh -s /bin/zsh
+
+# TMUX conf
+RUN echo "set-option -g default-shell /bin/zsh" >> ~/.tmux.conf
+RUN echo "set -g mode-mouse on" >> ~/.tmux.conf
+#RUN echo "set -g default-command zsh" >> ~/.tmux.conf
+
 # ------------------------------------------------------------------------------
 # Get cloud9 source and install
 WORKDIR /cloud9
